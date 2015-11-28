@@ -42,7 +42,7 @@ public class PlayerGUI : MonoBehaviour
 	void Update ()
 	{
 		if (healthBarDisplay >= 0 && healthBarDisplay <= 1) {
-			//healthBarDisplay += Time.deltaTime / healthFallRate * 2;
+			healthBarDisplay += Time.deltaTime / healthFallRate * 2;
 		}
 	}
 

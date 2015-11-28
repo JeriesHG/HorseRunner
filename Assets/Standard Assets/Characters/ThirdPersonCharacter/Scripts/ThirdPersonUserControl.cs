@@ -17,7 +17,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public float max_Speed = 2f;
 		public float acceleration = 0.2f;
 		public float repeatRate = 5f;
-		private float current_Speed;
+		public float current_Speed;
+		private int speedCycles = 0;
 
         
 		private void Start ()
@@ -81,6 +82,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			if (current_Speed < max_Speed) {
 				current_Speed += min_Speed + Time.deltaTime + acceleration;
 				m_Character.addAnimSpeedMultiplier (acceleration);
+				speedCycles++;
 			} else {
 				current_Speed = max_Speed;
 			}
@@ -89,6 +91,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		public void updateCurrentSpeed (float speed)
 		{
 			this.current_Speed = speed;
+			m_Character.addAnimSpeedMultiplier (-(speedCycles * acceleration));
 		}
 
 		public float getCurrentSpeed ()
