@@ -24,7 +24,7 @@ public class ObstacleCollision : MonoBehaviour
 			e.GetComponent<ThirdPersonUserControl> ().updateCurrentSpeed (Mathf.Abs (newSpeed));
 
 			float totalDamage = (base_damage + collision.relativeVelocity.magnitude + size.magnitude) / 100;
-			e.GetComponent<PlayerGUI> ().updateHealthBar (-totalDamage);
+			e.GetComponent<PlayerHealth> ().updateHealthBar (-totalDamage);
 			Destroy (this.gameObject);
 		}
 	}
